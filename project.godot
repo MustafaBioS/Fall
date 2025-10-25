@@ -11,9 +11,15 @@ config_version=5
 [application]
 
 config/name="Fall"
-run/main_scene="uid://dvhfjfcksxpkn"
+run/main_scene="uid://dvka2vu22yig"
 config/features=PackedStringArray("4.5", "Mobile")
 config/icon="res://icon.svg"
+
+[display]
+
+window/size/viewport_width=1024
+window/size/viewport_height=576
+window/stretch/mode="viewport"
 
 [editor_plugins]
 
