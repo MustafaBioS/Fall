@@ -18,16 +18,20 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_otkxt"]
-radius = 2.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_1uw8j"]
+radius = 3.0
 
 [node name="Leaf" type="CharacterBody2D"]
+collision_layer = 2
 script = ExtResource("1_1uw8j")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.03, 0.03)
 sprite_frames = SubResource("SpriteFrames_k30ml")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -1)
-shape = SubResource("CircleShape2D_otkxt")
+[node name="LeafArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeafArea"]
+shape = SubResource("CircleShape2D_1uw8j")
+
+[connection signal="body_entered" from="LeafArea" to="." method="_on_leaf_area_body_entered"]

@@ -1,0 +1,51 @@
+[gd_scene load_steps=5 format=3 uid="uid://bi4bb2tbqb2rj"]
+
+[ext_resource type="Texture2D" uid="uid://c51eg2mfpcijs" path="res://Assets/parallax_forest_pack web/v1/previewpng.png" id="2_fdj0q"]
+[ext_resource type="FontFile" uid="uid://jqn3e02qe0en" path="res://Fonts/Minecraft.ttf" id="3_k6jq0"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_48xlc"]
+texture = ExtResource("2_fdj0q")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1ehe0"]
+bg_color = Color(0, 0, 0, 0.39215687)
+
+[node name="Shop" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BG" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_48xlc")
+
+[node name="Overlay" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_1ehe0")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -95.0
+offset_top = 80.0
+offset_right = 95.0
+offset_bottom = 160.00006
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.99999994, 0.9133378, 0.8359792, 1)
+theme_override_fonts/font = ExtResource("3_k6jq0")
+theme_override_font_sizes/font_size = 80
+text = "Shop"
