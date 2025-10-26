@@ -1,5 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://bi4bb2tbqb2rj"]
+[gd_scene load_steps=12 format=3 uid="uid://bi4bb2tbqb2rj"]
 
+[ext_resource type="Script" uid="uid://bgmgbxekiw18e" path="res://Scripts/shop.gd" id="1_io27d"]
 [ext_resource type="Texture2D" uid="uid://c51eg2mfpcijs" path="res://Assets/parallax_forest_pack web/v1/previewpng.png" id="2_fdj0q"]
 [ext_resource type="FontFile" uid="uid://jqn3e02qe0en" path="res://Fonts/Minecraft.ttf" id="3_k6jq0"]
 
@@ -9,6 +10,43 @@ texture = ExtResource("2_fdj0q")
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1ehe0"]
 bg_color = Color(0, 0, 0, 0.39215687)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2shtd"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_48xlc"]
+bg_color = Color(0.78775924, 0.78775924, 0.78775924, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_io27d"]
+bg_color = Color(0.6255971, 0.6255971, 0.6255971, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_io27d"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fdj0q"]
+bg_color = Color(0.56078434, 0.56078434, 0.56078434, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k6jq0"]
+bg_color = Color(0.5609549, 0.5609549, 0.5609549, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
 [node name="Shop" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -16,6 +54,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_io27d")
 
 [node name="BG" type="Panel" parent="."]
 layout_mode = 1
@@ -49,3 +88,154 @@ theme_override_colors/font_color = Color(0.99999994, 0.9133378, 0.8359792, 1)
 theme_override_fonts/font = ExtResource("3_k6jq0")
 theme_override_font_sizes/font_size = 80
 text = "Shop"
+
+[node name="Back" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 50.0
+offset_top = -278.0
+offset_right = 223.0
+offset_bottom = -228.0
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_k6jq0")
+theme_override_font_sizes/font_size = 22
+theme_override_styles/normal = SubResource("StyleBoxFlat_2shtd")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_48xlc")
+theme_override_styles/hover = SubResource("StyleBoxFlat_io27d")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_io27d")
+text = "Back"
+
+[node name="Item" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 150.0
+offset_top = -41.0
+offset_right = 323.0
+offset_bottom = 9.0
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_k6jq0")
+theme_override_font_sizes/font_size = 22
+theme_override_styles/normal = SubResource("StyleBoxFlat_2shtd")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_48xlc")
+theme_override_styles/hover = SubResource("StyleBoxFlat_io27d")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_fdj0q")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_io27d")
+text = "Speed Boost"
+
+[node name="Item2" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 386.0
+offset_top = -41.0
+offset_right = 559.0
+offset_bottom = 9.0
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_k6jq0")
+theme_override_font_sizes/font_size = 22
+theme_override_styles/normal = SubResource("StyleBoxFlat_2shtd")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_48xlc")
+theme_override_styles/hover = SubResource("StyleBoxFlat_io27d")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_k6jq0")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_io27d")
+text = "Score Multiplier"
+
+[node name="Item3" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 627.0
+offset_top = -41.0
+offset_right = 800.0
+offset_bottom = 9.0
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_k6jq0")
+theme_override_font_sizes/font_size = 22
+theme_override_styles/normal = SubResource("StyleBoxFlat_2shtd")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_48xlc")
+theme_override_styles/hover = SubResource("StyleBoxFlat_io27d")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_io27d")
+text = "Item Name"
+
+[node name="Item4" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 863.0
+offset_top = -41.0
+offset_right = 1036.0
+offset_bottom = 9.0
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_k6jq0")
+theme_override_font_sizes/font_size = 22
+theme_override_styles/normal = SubResource("StyleBoxFlat_2shtd")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_48xlc")
+theme_override_styles/hover = SubResource("StyleBoxFlat_io27d")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_io27d")
+text = "Item Name"
+
+[node name="Price" type="Label" parent="."]
+layout_mode = 0
+offset_left = 214.0
+offset_top = 361.0
+offset_right = 239.0
+offset_bottom = 378.0
+scale = Vector2(2, 2)
+theme_override_fonts/font = ExtResource("3_k6jq0")
+text = "50"
+
+[node name="Price2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 448.0
+offset_top = 361.0
+offset_right = 473.0
+offset_bottom = 378.0
+scale = Vector2(2, 2)
+theme_override_fonts/font = ExtResource("3_k6jq0")
+text = "150"
+
+[connection signal="pressed" from="Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="Item" to="." method="_on_item_pressed"]
+[connection signal="pressed" from="Item2" to="." method="_on_item_2_pressed"]

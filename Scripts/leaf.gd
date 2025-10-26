@@ -17,5 +17,8 @@ func _physics_process(delta: float) -> void:
 func _on_leaf_area_body_entered(body: Node2D) -> void:
 	if body.has_method("player"):
 		print("Hit")
-		get_tree().root.get_node("World/Score").add_score()
+		if State.boost == false:
+			get_tree().root.get_node("World/Score").add_score()
+		if State.boost == true:
+			get_tree().root.get_node("World/Score").add_boosted_score()
 		queue_free()
