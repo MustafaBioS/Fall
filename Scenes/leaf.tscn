@@ -1,5 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://j5jug1gh5nqu"]
+[gd_scene load_steps=6 format=3 uid="uid://j5jug1gh5nqu"]
 
+[ext_resource type="Script" uid="uid://bp6g3308dkgcw" path="res://Scripts/leaf.gd" id="1_1uw8j"]
 [ext_resource type="Texture2D" uid="uid://cneyro1ls5u7m" path="res://Assets/leaf.png" id="1_gx4lw"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1uw8j"]
@@ -18,12 +19,13 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_otkxt"]
-radius = 3.0
+radius = 2.0
 
 [node name="Leaf" type="CharacterBody2D"]
+script = ExtResource("1_1uw8j")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.04, 0.04)
+scale = Vector2(0.03, 0.03)
 sprite_frames = SubResource("SpriteFrames_k30ml")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
