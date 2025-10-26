@@ -1,7 +1,4 @@
 extends CharacterBody2D
-
-const SPEED = 150.0
-const JUMP_VELOCITY = -400.0
 @onready var pause = $"../Pause"
 
 func player():
@@ -16,15 +13,21 @@ func _physics_process(delta: float) -> void:
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction := Input.get_axis("left", "right")
 	if direction and State.paused == false:
-		velocity.x = direction * SPEED
+		velocity.x = direction * State.SPEED
 		move_and_slide()
 	else:
 		if State.paused == false:
-			velocity.x = move_toward(velocity.x, 0, SPEED)
+			velocity.x = move_toward(velocity.x, 0, State.										SPEED)
 			move_and_slide()
 	
 
 func _process(delta: float) -> void:
+	if State.paused == false:
+		pause.visible = false
+	
+	if State.paused == true:
+		pause.visible = true
+	
 	if Input.is_action_just_pressed("pause"):
 		if State.paused == false:
 			State.paused = true
@@ -34,3 +37,4 @@ func _process(delta: float) -> void:
 			State.paused = false
 			pause.visible = false
 			print("Unpaused")
+		

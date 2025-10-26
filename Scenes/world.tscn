@@ -123,6 +123,22 @@ position = Vector2(-54, 0)
 wait_time = 2.0
 autostart = true
 
+[node name="Score" type="CanvasLayer" parent="."]
+script = ExtResource("6_5ukr8")
+
+[node name="ScoreLabel" type="Label" parent="Score"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -77.0
+offset_top = 50.0
+offset_right = -49.0
+offset_bottom = 101.0
+grow_horizontal = 0
+theme_override_fonts/font = ExtResource("5_fo5ed")
+theme_override_font_sizes/font_size = 50
+text = "0"
+
 [node name="Pause" type="CanvasLayer" parent="."]
 script = ExtResource("5_5ukr8")
 
@@ -235,24 +251,9 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_o06y3")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_k7acu")
 text = "Exit"
 
-[node name="Score" type="CanvasLayer" parent="."]
-script = ExtResource("6_5ukr8")
-
-[node name="ScoreLabel" type="Label" parent="Score"]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -77.0
-offset_top = 50.0
-offset_right = -49.0
-offset_bottom = 101.0
-grow_horizontal = 0
-theme_override_fonts/font = ExtResource("5_fo5ed")
-theme_override_font_sizes/font_size = 50
-text = "0"
-
 [connection signal="timeout" from="LeafSpawner/Timer" to="LeafSpawner" method="_on_timer_timeout"]
 [connection signal="pressed" from="Pause/VBoxContainer/Play" to="Pause" method="_on_play_pressed"]
+[connection signal="pressed" from="Pause/VBoxContainer/Shop" to="Pause" method="_on_shop_pressed"]
 [connection signal="pressed" from="Pause/VBoxContainer/Options" to="Pause" method="_on_options_pressed"]
 [connection signal="pressed" from="Pause/VBoxContainer/Menu" to="Pause" method="_on_menu_pressed"]
 [connection signal="pressed" from="Pause/VBoxContainer/Exit" to="Pause" method="_on_exit_pressed"]
