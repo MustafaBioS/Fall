@@ -216,6 +216,7 @@ theme_override_font_sizes/font_size = 22
 theme_override_styles/normal = SubResource("StyleBoxFlat_2shtd")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_48xlc")
 theme_override_styles/hover = SubResource("StyleBoxFlat_io27d")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_fdj0q")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_io27d")
 text = "Next Season"
 
