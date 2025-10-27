@@ -1,8 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://bi4bb2tbqb2rj"]
+[gd_scene load_steps=14 format=3 uid="uid://bi4bb2tbqb2rj"]
 
 [ext_resource type="Script" uid="uid://bgmgbxekiw18e" path="res://Scripts/shop.gd" id="1_io27d"]
 [ext_resource type="Texture2D" uid="uid://c51eg2mfpcijs" path="res://Assets/parallax_forest_pack web/v1/previewpng.png" id="2_fdj0q"]
 [ext_resource type="FontFile" uid="uid://jqn3e02qe0en" path="res://Fonts/Minecraft.ttf" id="3_k6jq0"]
+[ext_resource type="AudioStream" uid="uid://b8matud1ml7w3" path="res://Sounds/purchase-success-384963.mp3" id="4_fdj0q"]
+[ext_resource type="AudioStream" uid="uid://dewno7nett2eu" path="res://Sounds/Jammin Bread - Casa Rosa's Tulum Vibes (youtube).mp3" id="5_k6jq0"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_48xlc"]
 texture = ExtResource("2_fdj0q")
@@ -188,8 +190,9 @@ theme_override_font_sizes/font_size = 22
 theme_override_styles/normal = SubResource("StyleBoxFlat_2shtd")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_48xlc")
 theme_override_styles/hover = SubResource("StyleBoxFlat_io27d")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_fdj0q")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_io27d")
-text = "Item Name"
+text = "Faster Drops"
 
 [node name="Item4" type="Button" parent="."]
 layout_mode = 1
@@ -214,17 +217,17 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_2shtd")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_48xlc")
 theme_override_styles/hover = SubResource("StyleBoxFlat_io27d")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_io27d")
-text = "Item Name"
+text = "Next Season"
 
 [node name="Price" type="Label" parent="."]
 layout_mode = 0
-offset_left = 214.0
+offset_left = 218.0
 offset_top = 361.0
-offset_right = 239.0
+offset_right = 239.5
 offset_bottom = 378.0
 scale = Vector2(2, 2)
 theme_override_fonts/font = ExtResource("3_k6jq0")
-text = "50"
+text = "25"
 
 [node name="Price2" type="Label" parent="."]
 layout_mode = 0
@@ -234,8 +237,38 @@ offset_right = 473.0
 offset_bottom = 378.0
 scale = Vector2(2, 2)
 theme_override_fonts/font = ExtResource("3_k6jq0")
-text = "150"
+text = "50"
+
+[node name="Price3" type="Label" parent="."]
+layout_mode = 0
+offset_left = 686.0
+offset_top = 361.0
+offset_right = 713.0
+offset_bottom = 378.0
+scale = Vector2(2, 2)
+theme_override_fonts/font = ExtResource("3_k6jq0")
+text = "100"
+
+[node name="Price4" type="Label" parent="."]
+layout_mode = 0
+offset_left = 924.0
+offset_top = 361.0
+offset_right = 951.0
+offset_bottom = 378.0
+scale = Vector2(2, 2)
+theme_override_fonts/font = ExtResource("3_k6jq0")
+text = "125"
+
+[node name="SFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_fdj0q")
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_k6jq0")
+autoplay = true
+bus = &"Music"
 
 [connection signal="pressed" from="Back" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="Item" to="." method="_on_item_pressed"]
 [connection signal="pressed" from="Item2" to="." method="_on_item_2_pressed"]
+[connection signal="pressed" from="Item3" to="." method="_on_item_3_pressed"]
+[connection signal="pressed" from="Item4" to="." method="_on_item_4_pressed"]

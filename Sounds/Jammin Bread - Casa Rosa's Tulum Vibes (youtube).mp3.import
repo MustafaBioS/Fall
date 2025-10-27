@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dewno7nett2eu"
+path="res://.godot/imported/Jammin Bread - Casa Rosa's Tulum Vibes (youtube).mp3-6f8b0174d34b7a518983b9df3a37d6a1.mp3str"
+
+[deps]
+
+source_file="res://Sounds/Jammin Bread - Casa Rosa's Tulum Vibes (youtube).mp3"
+dest_files=["res://.godot/imported/Jammin Bread - Casa Rosa's Tulum Vibes (youtube).mp3-6f8b0174d34b7a518983b9df3a37d6a1.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
