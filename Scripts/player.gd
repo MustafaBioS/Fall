@@ -1,5 +1,6 @@
 extends CharacterBody2D
 @onready var pause = $"../Pause"
+@onready var bg = $"../Previewpng"
 
 func player():
 	pass
@@ -19,6 +20,9 @@ func _physics_process(delta: float) -> void:
 		if State.paused == false:
 			velocity.x = move_toward(velocity.x, 0, State.										SPEED)
 			move_and_slide()
+	
+	if State.season == "Winter":
+		bg.texture == preload("uid://cnfvmsys4jclu")
 	
 
 func _process(delta: float) -> void:

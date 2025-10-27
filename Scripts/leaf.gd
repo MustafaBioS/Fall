@@ -1,6 +1,7 @@
 extends CharacterBody2D
 @onready var scorelb = $Score/ScoreLabel
 var fall_speed = 15.0
+@onready var body = $AnimatedSprite2D
 
 func _physics_process(delta: float) -> void:
 	if State.paused == false:
@@ -13,7 +14,7 @@ func _physics_process(delta: float) -> void:
 	if global_position.y > get_viewport_rect().size.y + 50:
 		queue_free()
 		print("deleted")
-
+ 
 func _on_leaf_area_body_entered(body: Node2D) -> void:
 	if body.has_method("player"):
 		print("Hit")
