@@ -1,8 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://dvka2vu22yig"]
+[gd_scene load_steps=17 format=3 uid="uid://dvka2vu22yig"]
 
 [ext_resource type="Script" uid="uid://b6fahd4e54l24" path="res://Scripts/main.gd" id="1_1ehe0"]
 [ext_resource type="Texture2D" uid="uid://c51eg2mfpcijs" path="res://Assets/parallax_forest_pack web/v1/previewpng.png" id="1_28flt"]
 [ext_resource type="FontFile" uid="uid://jqn3e02qe0en" path="res://Fonts/Minecraft.ttf" id="2_48xlc"]
+[ext_resource type="Script" uid="uid://dfcfpeneox2ss" path="res://Scripts/volControl.gd" id="4_ce3w2"]
+[ext_resource type="AudioStream" uid="uid://dewno7nett2eu" path="res://Sounds/Jammin Bread - Casa Rosa's Tulum Vibes (youtube).mp3" id="5_n45e2"]
+[ext_resource type="Script" uid="uid://bfo1n4cixn8a3" path="res://Scripts/fullscreen.gd" id="5_opfnp"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_48xlc"]
 texture = ExtResource("1_28flt")
@@ -33,6 +36,23 @@ corner_radius_bottom_left = 15
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_48xlc"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n45e2"]
+bg_color = Color(0, 0, 0, 0.49019608)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_1ehe0"]
+color = Color(1, 1, 1, 1)
+thickness = 6
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_ce3w2"]
+color = Color(0, 0.5626384, 0.65377086, 1)
+thickness = 6
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_opfnp"]
+
 [node name="Main Menu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -61,6 +81,7 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_1ehe0")
 
 [node name="Label" type="Label" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -75,7 +96,8 @@ theme_override_fonts/font = ExtResource("2_48xlc")
 theme_override_font_sizes/font_size = 80
 text = "Fall"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="MainButtons" type="VBoxContainer" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -90,7 +112,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 8
 
-[node name="Play" type="Button" parent="VBoxContainer"]
+[node name="Play" type="Button" parent="MainButtons"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -105,7 +127,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_ce3w2")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_48xlc")
 text = "Play"
 
-[node name="Options" type="Button" parent="VBoxContainer"]
+[node name="Options" type="Button" parent="MainButtons"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -120,7 +142,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_ce3w2")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_48xlc")
 text = "Options"
 
-[node name="Exit" type="Button" parent="VBoxContainer"]
+[node name="Exit" type="Button" parent="MainButtons"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -135,6 +157,94 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_ce3w2")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_48xlc")
 text = "Exit"
 
-[connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="VBoxContainer/Options" to="." method="_on_options_pressed"]
-[connection signal="pressed" from="VBoxContainer/Exit" to="." method="_on_exit_pressed"]
+[node name="Options" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -408.0625
+offset_top = -247.0
+offset_right = 408.0625
+offset_bottom = 247.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_n45e2")
+
+[node name="Label" type="Label" parent="Options"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -101.5
+offset_top = 47.0
+offset_right = 101.5
+offset_bottom = 103.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_48xlc")
+theme_override_font_sizes/font_size = 55
+text = "Options"
+
+[node name="Back" type="Button" parent="Options"]
+layout_mode = 0
+offset_left = 307.0625
+offset_top = 383.0
+offset_right = 509.0625
+offset_bottom = 438.0
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_28flt")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_48xlc")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ce3w2")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_48xlc")
+text = "Back"
+
+[node name="Volume" type="HSlider" parent="Options"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -207.5
+offset_top = -111.0
+offset_right = 207.5
+offset_bottom = -80.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/slider = SubResource("StyleBoxLine_1ehe0")
+theme_override_styles/grabber_area = SubResource("StyleBoxLine_ce3w2")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_ce3w2")
+max_value = 1.0
+step = 0.05
+value = 1.0
+script = ExtResource("4_ce3w2")
+audioBus = "Music"
+
+[node name="Fullscreen" type="CheckButton" parent="Options"]
+layout_mode = 0
+offset_left = 194.0625
+offset_top = 169.0
+offset_right = 630.0625
+offset_bottom = 215.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_opfnp")
+text = "FullScreen"
+script = ExtResource("5_opfnp")
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_n45e2")
+autoplay = true
+bus = &"Music"
+
+[connection signal="pressed" from="MainButtons/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="MainButtons/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="MainButtons/Exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="Options/Back" to="." method="_on_back_pressed"]
+[connection signal="value_changed" from="Options/Volume" to="Options/Volume" method="_on_value_changed"]
+[connection signal="toggled" from="Options/Fullscreen" to="Options/Fullscreen" method="_on_toggled"]
